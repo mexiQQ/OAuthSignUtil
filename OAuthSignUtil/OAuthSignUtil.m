@@ -46,7 +46,11 @@ static OAuthSignUtil *shareOAuthSignUtil = nil;
         UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
         snsPlatform.loginClickHandler(viewContrller,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
             [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToSina  completion:^(UMSocialResponseEntity *response){
-                NSLog(@"response =%@",response);
+                NSArray *res = (NSArray *)response;
+                NSDictionary *re = (NSDictionary *)res[0];
+                
+                NSDictionary *userInfo = @{@"username":[re objectForKey:@"screen_name"],@"avatar_url":[re objectForKey:@"profile_image_url"],@"email":@"no"};
+                [self finishOAuth:userInfo accessToken:[re objectForKey:@"access_token"]];
             }];
         });
         [UMSocialControllerService defaultControllerService].socialUIDelegate = self;
@@ -54,21 +58,27 @@ static OAuthSignUtil *shareOAuthSignUtil = nil;
         UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
         snsPlatform.loginClickHandler(viewContrller,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
             [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToSina  completion:^(UMSocialResponseEntity *response){
-               NSLog(@"response =%@",response);
+                NSArray *res = (NSArray *)response;
+                NSDictionary *re = (NSDictionary *)res[0];
+                
+                NSDictionary *userInfo = @{@"username":[re objectForKey:@"screen_name"],@"avatar_url":[re objectForKey:@"profile_image_url"],@"email":@"no"};
+                [self finishOAuth:userInfo accessToken:[re objectForKey:@"access_token"]];
             }];
         });
         [UMSocialControllerService defaultControllerService].socialUIDelegate = self;
     }
 }
 
--(void)didFinishGithubOAuth:(NSString *)accessToken{
-    NSDictionary *userInfo = @{@"username":@"lijianwei",@"avatar_url":@"http://www.baidu.com",@"email":@"ljw040426@gmail.com"};
+-(void)didFinishGithubOAuth:(NSString *)accessToken response:(id)responseObject{
+    NSDictionary *res = (NSDictionary *)responseObject;
+    NSDictionary *userInfo = @{@"username":[res objectForKey:@"name"],@"avatar_url":[res objectForKey:@"avatar_url"],@"email":[res objectForKey:@"email"]};
     [self finishOAuth:userInfo accessToken:accessToken];
 }
 
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth error: (NSError *) error{
-    NSDictionary *userInfo = @{@"username":@"lijianwei",@"avatar_url":@"http://www.baidu.com",@"email":@"ljw040426@gmail.com"};
-    [self finishOAuth:userInfo accessToken:@"956f684abb96d228d796c31fb1e77663ac1e49b9"];
+    GTLPlusPerson *person = [GPPSignIn sharedInstance].googlePlusUser;
+    NSDictionary *userInfo = @{@"username":person.displayName,@"avatar_url":person.image.url,@"email":[GPPSignIn sharedInstance].userEmail};
+    [self finishOAuth:userInfo accessToken:auth.authorizationTokenKey];
 }
 
 - (void)finishOAuth:(NSDictionary *) userInfo accessToken:(NSString *)accessToken{

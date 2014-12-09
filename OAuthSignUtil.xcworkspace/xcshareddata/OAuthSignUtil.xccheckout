@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>44A73B35-DF6C-41AD-B3B9-AFD3520FB830</string>
+	<key>IDESourceControlProjectName</key>
+	<string>OAuthSignUtil</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5A9A67A6A433A31A6DF946E95A651C4240C2CFC7</key>
+		<string>https://github.com/mexiQQ/OAuthSignUtil.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OAuthSignUtil.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5A9A67A6A433A31A6DF946E95A651C4240C2CFC7</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mexiQQ/OAuthSignUtil.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5A9A67A6A433A31A6DF946E95A651C4240C2CFC7</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5A9A67A6A433A31A6DF946E95A651C4240C2CFC7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OAuthSignUtil</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -24,9 +24,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h> 
+#import "AFNetworking.h"
 
 @protocol MBGithubOAuthDelegate <NSObject>
--(void)didFinishGithubOAuth:(NSString *)accessToken;
+-(void)didFinishGithubOAuth:(NSString *)accessToken response:(id)responseObject;
 @end
 
 static NSString * const kMBAccessTokenKey = @"kMBAccessTokenKey";

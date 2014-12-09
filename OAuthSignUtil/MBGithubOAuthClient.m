@@ -86,7 +86,6 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
                                _githubClientSecret,
                                [self temporaryCodeFromCallbackURL:url]];
     
-    __weak typeof(self) weakSelf = self;
     __block NSString *accessTokenData = nil;
     
     NSURLSessionConfiguration *sessionConficuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -94,32 +93,20 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
     
     [[session dataTaskWithURL:[NSURL URLWithString:requestString]
             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                
                 if (!error) {
-                    
-                    switch (options) {
-                        case kMBSaveOptionsUserDefaults:
-                            
-                            accessTokenData = [self accessTokenFromString:[[NSString alloc]initWithData:data encoding:NSASCIIStringEncoding]];
-                            [weakSelf saveOAuthTokenToUserDefaults:accessTokenData];
-                            
-                            break;
-                        case kMBSaveOptionsKeychain:
-                            
-                            accessTokenData = [self accessTokenFromString:[[NSString alloc]initWithData:data encoding:NSASCIIStringEncoding]];
-                            [weakSelf saveOAUthTokenToKeychain:accessTokenData];
-                            [self finishOAuth:accessTokenData];
-                            break;
-                    }
+                    accessTokenData = [self accessTokenFromString:[[NSString alloc]initWithData:data encoding:NSASCIIStringEncoding]];
+                    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+                    [manager GET:[NSString stringWithFormat:@"https://api.github.com/user?access_token=%@",accessTokenData] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                        [self finishOAuth:accessTokenData response:responseObject];
+                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                        NSLog(@"Error: %@", error);
+                    }];
                     completionHandler(YES, nil);
-                    
                 } else {
-                    
                     completionHandler(NO, error);
-                    
                 }
                 
-            }]resume];
+    }]resume];
 }
 
 #pragma mark - Saving 
@@ -133,69 +120,12 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
     NSArray *matches = [regex matchesInString:string options:0 range:NSMakeRange(0, string.length)];
     
     if (!error && [matches count] > 0) {
-        
         [matches enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             
             NSRange matchRange = [(NSTextCheckingResult *)obj rangeAtIndex:1];
             accessToken = [string substringWithRange:matchRange];
             
         }];
-    }
-    
-    return accessToken;
-}
-
-- (void)saveOAuthTokenToUserDefaults:(NSString *)token
-{
-    [[NSUserDefaults standardUserDefaults]setObject:token forKey:kMBAccessTokenKey];
-    [[NSUserDefaults standardUserDefaults]synchronize];
-}
-
-- (void)saveOAUthTokenToKeychain:(NSString *)token
-{
-    NSMutableDictionary *keychainQuery = [self getKeychainQuery:kMBAccessTokenKey];
-    SecItemDelete((__bridge CFDictionaryRef)keychainQuery);
-    
-    [keychainQuery setObject:[NSKeyedArchiver archivedDataWithRootObject:token] forKey:(__bridge id)kSecValueData];
-    
-    SecItemAdd((__bridge CFDictionaryRef)keychainQuery, NULL);
-}
-
-- (id)getOAuthTokenFromKeychain
-{
-    id token = nil;
-    NSMutableDictionary *keychainQuery = [self getKeychainQuery:kMBAccessTokenKey];
-    
-    [keychainQuery setObject:(id)kCFBooleanTrue forKey:(__bridge id)kSecReturnData];
-    [keychainQuery setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id)kSecMatchLimit];
-    
-    CFDataRef keyData = NULL;
-    if (SecItemCopyMatching((__bridge CFDictionaryRef)keychainQuery, (CFTypeRef *)&keyData) == noErr) {
-
-        token = [NSKeyedUnarchiver unarchiveObjectWithData:(__bridge NSData *)keyData];
-        
-    }
-    if (keyData) CFRelease(keyData);
-    
-    return token;
-}
-
-- (NSMutableDictionary *)getKeychainQuery:(NSString *)query
-{
-    return [@{ (__bridge id)kSecClass : (__bridge id)kSecClassGenericPassword,
-               (__bridge id)kSecAttrService : query,
-               (__bridge id)kSecAttrAccount : query,
-               (__bridge id)kSecAttrAccessible : (__bridge id)kSecAttrAccessibleAfterFirstUnlock } mutableCopy];
-}
-
-#pragma mark - Helper Methods 
-
-- (NSString *)accessToken
-{
-    NSString *accessToken = [[NSUserDefaults standardUserDefaults]objectForKey:kMBAccessTokenKey];
-    
-    if (!accessToken) {
-        accessToken = [self getOAuthTokenFromKeychain];
     }
     
     return accessToken;
@@ -218,8 +148,8 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
     return YES;
 }
 
-- (void)finishOAuth:(NSString *)accessToken{
-    [_mydelegate didFinishGithubOAuth:accessToken];
+- (void)finishOAuth:(NSString *)accessToken response:(id)responseObject{
+    [_mydelegate didFinishGithubOAuth:accessToken response:responseObject];
 }
 
 @end

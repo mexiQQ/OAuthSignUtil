@@ -2,21 +2,22 @@
 
 Github Google Sina QQ OAuth 認證
 
-#Install
-##Cocoapod
+##Install
+###Cocoapod
 暂不支持
-##Without Cocoapod
+###Without Cocoapod
 見示例程序
 
-#Dependencies
-## AFNetworking
-## UMSocail
-## googleplus-ios-sdl
+##Dependencies
+- AFNetworking
+- UMSocail
+- googleplus-ios-sdl
 
-#Use
+##Use
 
 1. 在APP delegate 中添加如下回調處理：
-    
+
+```    
    -(BOOL)application: (UIApplication *)application openURL: (NSURL *)url sourceApplication: (NSString *)sourceApplication annotation: (id)annotation {
         if([url.absoluteString containsString:@"gitauth"]){
             return [[MBGithubOAuthClient sharedClient] handleOpenURL:url];
@@ -28,6 +29,7 @@ Github Google Sina QQ OAuth 認證
             return [UMSocialSnsService handleOpenURL:url];
         }
     }
+```
 (記得添加引用 import "OAuthSignUtilHeader.h")
 
 2. 添加URL Types(在Info里)
@@ -37,7 +39,7 @@ Github Google Sina QQ OAuth 認證
 3. 在viewContoller.h中實現引用`import "OAuthSignUtil.h"`，併實現`OAuthSignUtilDelegate`代理
 
 4. viewController.m的實現如下：
-
+```
     //回调
     -(void)didFinishOAuthSign:(NSDictionary *)userInfo accessToken:(NSString *)accessToken{
         NSLog(@"accessToken =%@",accessToken);
@@ -49,6 +51,7 @@ Github Google Sina QQ OAuth 認證
         [[OAuthSignUtil sharedOAuthSignUtil] signInto:SignIntoSina viewController:self];
         [OAuthSignUtil sharedOAuthSignUtil].oAuthDelegate = self;
     }
+```
 (如上所示SignIntoSina是一個枚舉類型，還有SignIntoGithub SignIntoGoogle SignIntoQQ)
 
 ##License

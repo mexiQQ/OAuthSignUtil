@@ -30,15 +30,16 @@ Github Google Sina QQ OAuth 認證
         }
     }
 ```
-(記得添加引用 import "OAuthSignUtilHeader.h")
+   (記得添加引用 import "OAuthSignUtilHeader.h")
 
 2. 添加URL Types(在Info里)
 
-可以使用我的配置，也可以換成你自己的配置，這些都需要到第三方平臺申請，我的配置見示例代碼
+   可以使用我的配置，也可以換成你自己的配置，這些都需要到第三方平臺申請，我的配置見示例代碼
 
 3. 在viewContoller.h中實現引用`import "OAuthSignUtil.h"`，併實現`OAuthSignUtilDelegate`代理
 
 4. viewController.m的實現如下：
+
 ```
     //回调
     -(void)didFinishOAuthSign:(NSDictionary *)userInfo accessToken:(NSString *)accessToken{

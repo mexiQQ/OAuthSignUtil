@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-UMengSocial.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-googleplus-ios-sdk.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5D795E463AC034EEDEBCF600</key>
+		<key>5B89040A99459B27725BAB77</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>84D7D1694D18E1A178DCEC28</key>
+		<key>CBC35974026E9A9169CD1EDF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EAC75C1E18951AF64F3644BF</key>
+		<key>D39CE3B2F2852F4895C50076</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FB2C1E8F297AA30B2D3E96CD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

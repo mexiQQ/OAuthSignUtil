@@ -7,17 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <GooglePlus/GooglePlus.h>
-#import "GPPURLHandler.h"
-#import "GTLPlusConstants.h"
-#import "GPPSignIn.h"
-
-#import "OAuthSignUtil.h"
-#import "MBGithubOAuthClient.h"
-#import "UMSocial.h"
-#import "UMSocialSinaHandler.h"
-#import "UMSocialQQHandler.h"
-
+#import "OAuthSignUtilHeader.h"
 @interface AppDelegate ()
 
 @end
@@ -33,10 +23,9 @@
 }
 
 - (BOOL)application: (UIApplication *)application openURL: (NSURL *)url sourceApplication: (NSString *)sourceApplication annotation: (id)annotation {
-    NSLog(@"url = %@",url.absoluteString);
     if([url.absoluteString containsString:@"gitauth"]){
         return [[MBGithubOAuthClient sharedClient] handleOpenURL:url];
-    }else if([url.absoluteString containsString:@"test"]){
+    }else if([url.absoluteString containsString:@"com.ljw.test"]){
         return [GPPURLHandler handleURL:url
                       sourceApplication:sourceApplication
                              annotation:annotation];

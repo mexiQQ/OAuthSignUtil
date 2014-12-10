@@ -48,6 +48,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 0
 
+// UMengSocial
+#define COCOAPODS_POD_AVAILABLE_UMengSocial
+#define COCOAPODS_VERSION_MAJOR_UMengSocial 4
+#define COCOAPODS_VERSION_MINOR_UMengSocial 2
+#define COCOAPODS_VERSION_PATCH_UMengSocial 1
+
 // googleplus-ios-sdk
 #define COCOAPODS_POD_AVAILABLE_googleplus_ios_sdk
 #define COCOAPODS_VERSION_MAJOR_googleplus_ios_sdk 1

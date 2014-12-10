@@ -21,13 +21,16 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - googleplus-ios-sdk (1.7.1)
+  - UMengSocial (4.2.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.0)
   - googleplus-ios-sdk (~> 1.7.1)
+  - UMengSocial (~> 4.2.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
   googleplus-ios-sdk: b0f6cd8aa29c51d0048cace8dc3bd8f4ae0806bb
+  UMengSocial: c53282eaf74fbb41aebe431b497ed6b634cf357f
 
 COCOAPODS: 0.35.0

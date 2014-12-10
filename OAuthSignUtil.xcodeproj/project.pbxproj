@@ -427,22 +427,10 @@
 			baseConfigurationReference = B0009B9E0273A3C42321619D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/liwenqian/Desktop/iOS/OAuthSignUtils/OAuthSignUtils/umeng_ios_social_sdk_4.2.1_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI,
-					"$(PROJECT_DIR)/OAuthSignUtil/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = OAuthSignUtil/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/liwenqian/Desktop/iOS/OAuthSignUtils/OAuthSignUtils/umeng_ios_social_sdk_4.2.1_arm64_custom/UMSocial_Sdk_4.2.1,
-					/Users/liwenqian/Desktop/iOS/OAuthSignUtils/OAuthSignUtils/umeng_ios_social_sdk_4.2.1_arm64_custom/UMSocial_Sdk_Extra_Frameworks/Sina,
-					/Users/liwenqian/Desktop/iOS/OAuthSignUtils/OAuthSignUtils/umeng_ios_social_sdk_4.2.1_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI,
-					"$(PROJECT_DIR)/OAuthSignUtil/UMSocial_Sdk_4.2.1",
-					"$(PROJECT_DIR)/OAuthSignUtil/UMSocial_Sdk_Extra_Frameworks/Sina",
-					"$(PROJECT_DIR)/OAuthSignUtil/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -452,22 +440,10 @@
 			baseConfigurationReference = 7360B189E3D7BFB0DF2874C6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/liwenqian/Desktop/iOS/OAuthSignUtils/OAuthSignUtils/umeng_ios_social_sdk_4.2.1_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI,
-					"$(PROJECT_DIR)/OAuthSignUtil/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = OAuthSignUtil/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/liwenqian/Desktop/iOS/OAuthSignUtils/OAuthSignUtils/umeng_ios_social_sdk_4.2.1_arm64_custom/UMSocial_Sdk_4.2.1,
-					/Users/liwenqian/Desktop/iOS/OAuthSignUtils/OAuthSignUtils/umeng_ios_social_sdk_4.2.1_arm64_custom/UMSocial_Sdk_Extra_Frameworks/Sina,
-					/Users/liwenqian/Desktop/iOS/OAuthSignUtils/OAuthSignUtils/umeng_ios_social_sdk_4.2.1_arm64_custom/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI,
-					"$(PROJECT_DIR)/OAuthSignUtil/UMSocial_Sdk_4.2.1",
-					"$(PROJECT_DIR)/OAuthSignUtil/UMSocial_Sdk_Extra_Frameworks/Sina",
-					"$(PROJECT_DIR)/OAuthSignUtil/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

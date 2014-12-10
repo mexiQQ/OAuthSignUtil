@@ -20,11 +20,10 @@
 #import "UMSocialSinaHandler.h"
 
 #import <GooglePlus/GooglePlus.h>
-#import <GoogleOpenSource/GoogleOpenSource.h>
 #import <QuartzCore/QuartzCore.h>
 #import "GPPSignIn.h"
 #import "GPPSignInButton.h"
-
+#import <GoogleOpenSource/GoogleOpenSource.h>
 @protocol OAuthSignUtilDelegate<NSObject>
 
 @required
@@ -47,6 +46,7 @@ typedef void(^OAuthSignUtilCompletionHandler) (BOOL success, NSError *error);
 
 +(OAuthSignUtil *)sharedOAuthSignUtil;
 
+-(void)print;
 -(void)signInto:(SignInOptions)options viewController:(UIViewController *)viewContrller;
 
 @end

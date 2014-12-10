@@ -19,8 +19,8 @@
 #import "UMSocial.h"
 #import "UMSocialSinaHandler.h"
 
-#import <GoogleOpenSource/GoogleOpenSource.h>
 #import <GooglePlus/GooglePlus.h>
+#import <GoogleOpenSource/GoogleOpenSource.h>
 #import <QuartzCore/QuartzCore.h>
 #import "GPPSignIn.h"
 #import "GPPSignInButton.h"

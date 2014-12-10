@@ -21,7 +21,6 @@
 
 #import "GoogleOpenSource.h"
 #import "GooglePlus.h"
-#import <QuartzCore/QuartzCore.h>
 #import "GPPSignIn.h"
 #import "GPPSignInButton.h"
 @protocol OAuthSignUtilDelegate<NSObject>

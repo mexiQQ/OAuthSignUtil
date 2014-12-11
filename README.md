@@ -22,55 +22,53 @@ Github Google Sina QQ OAuth Sign
 
 1. add the callback function in Appdelegate.m
 
-```    
-   -(BOOL)application: (UIApplication *)application openURL: (NSURL *)url sourceApplication: (NSString *)sourceApplication annotation: (id)annotation {
-        if([url.absoluteString containsString:@"gitauth"]){
-            return [[MBGithubOAuthClient sharedClient] handleOpenURL:url];
-        }else if([url.absoluteString containsString:@"com.ljw.test"]){
-            return [GPPURLHandler handleURL:url
-                          sourceApplication:sourceApplication
-                                 annotation:annotation];
-        }else{
-            return [UMSocialSnsService handleOpenURL:url];
-        }
-    }
+		//(remember to import "OAuthSignUtilHeader.h")
+		- (BOOL)application: (UIApplication *)application openURL: (NSURL *)url sourceApplication: (NSString *)sourceApplication annotation: (id)annotation {
+		    if([url.absoluteString containsString:@"gitauth"]){
+		        return [[MBGithubOAuthClient sharedClient] handleOpenURL:url];
+		    }else if([url.absoluteString containsString:@"com.ljw.test"]){
+		        return [GPPURLHandler handleURL:url
+		                      sourceApplication:sourceApplication
+		                             annotation:annotation];
+		    }else{
+		        return [UMSocialSnsService handleOpenURL:url];
+		    }
+		}
 
-   //(remember to import "OAuthSignUtilHeader.h")
-```
 
 2. add URL Types(In project target Info)
 
-   you can use my setting or use your own setting,like follow: 
+   you can use my setting or use your own setting,like the follow: 
 	
 	![](https://github.com/mexiQQ/OAuthSignUtil/blob/master/1.png)
 
 3. viewController.h:
 
-``` 
-#import <UIKit/UIKit.h>
-#import "OAuthSignUtil.h"
 
-@interface ViewController : UIViewController<OAuthSignUtilDelegate>
+		#import <UIKit/UIKit.h>
+		#import "OAuthSignUtil.h"
+		
+		@interface ViewController : UIViewController<OAuthSignUtilDelegate>
+		
+		@end
 
-@end
-```
 
 4. viewController.m：
 
-```
-	//callback
+
+	   //callback
 	   - (void)didFinishOAuthSign:(NSDictionary *)userInfo accessToken:(NSString *)accessToken{
 	    NSLog(@"accessToken =%@",accessToken);
 	    NSLog(@"userInfo =%@",userInfo);
-	}
+	   }
 
-    //OAuth
+       //OAuth
        - (IBAction)loginAction:(id)sender  {
        [[OAuthSignUtil sharedOAuthSignUtil] signInto:SignIntoSina viewController:self ];
        [OAuthSignUtil sharedOAuthSignUtil].oAuthDelegate = sel f;
- 	}
+ 	   }
 
-```  
+ 
    
 5. Enum:`SignIntoSina,SignIntoGithub,SignIntoGoogle,SignIntoQQ`
 

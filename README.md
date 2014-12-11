@@ -1,21 +1,26 @@
 #OAuthSignUtil
 
-Github Google Sina QQ OAuth 認證
+Github Google Sina QQ OAuth Sign
 
 ##Install
-###Cocoapod
-暂不支持
-###Without Cocoapod
-見示例程序
+
+####Cocoapod
+	
+	platform:'ios','7.0'
+	pod 'MXOAuthSignUtil', '~> 0.0.6'
+
+####Without Cocoapod
+	just like example
 
 ##Dependencies
-- AFNetworking
-- UMSocail
-- googleplus-ios-sdl
+
+- AFNetworking  2.5.0
+- UMSocail  4.2.1
+- googleplus-ios-sdl  1.7.1
 
 ##Use
 
-1. 在APP delegate 中添加如下回調處理：
+1. add the callback function in Appdelegate.m
 
 ```    
    -(BOOL)application: (UIApplication *)application openURL: (NSURL *)url sourceApplication: (NSString *)sourceApplication annotation: (id)annotation {
@@ -30,30 +35,41 @@ Github Google Sina QQ OAuth 認證
         }
     }
 
-   //(記得添加引用 import "OAuthSignUtilHeader.h")
+   //(remember to import "OAuthSignUtilHeader.h")
 ```
-2. 添加URL Types(在Info里)
+2. add URL Types(In project target Info)
 
-   可以使用我的配置，也可以換成你自己的配置，這些都需要到第三方平臺申請，我的配置見示例代碼
+   you can use my setting or use your own setting,just like my demo.
 
-3. 在viewContoller.h中實現引用`import "OAuthSignUtil.h"`，併實現`OAuthSignUtilDelegate`代理
+3. viewController.h:
 
-4. viewController.m的實現如下：
+``` 
+#import <UIKit/UIKit.h>
+#import "OAuthSignUtil.h"
+
+@interface ViewController : UIViewController<OAuthSignUtilDelegate>
+
+@end
+```
+
+4. viewController.m：
 
 ```
-    //回调
-    -(void)didFinishOAuthSign:(NSDictionary *)userInfo accessToken:(NSString *)accessToken{
-        NSLog(@"accessToken =%@",accessToken);
-        NSLog(@"userInfo =%@",userInfo);
-    }
+	//callback
+	   - (void)didFinishOAuthSign:(NSDictionary *)userInfo accessToken:(NSString *)accessToken{
+	    NSLog(@"accessToken =%@",accessToken);
+	    NSLog(@"userInfo =%@",userInfo);
+	}
 
-    //授权
-    - (IBAction)loginAction:(id)sender {
-        [[OAuthSignUtil sharedOAuthSignUtil] signInto:SignIntoSina viewController:self];
-        [OAuthSignUtil sharedOAuthSignUtil].oAuthDelegate = self;
-    }
-```
-(如上所示SignIntoSina是一個枚舉類型，還有SignIntoGithub SignIntoGoogle SignIntoQQ)
+    //OAuth
+       - (IBAction)loginAction:(id)sender  {
+       [[OAuthSignUtil sharedOAuthSignUtil] signInto:SignIntoSina viewController:self ];
+       [OAuthSignUtil sharedOAuthSignUtil].oAuthDelegate = sel f;
+ 	}
+
+```  
+   
+5. Enum:`SignIntoSina,SignIntoGithub,SignIntoGoogle,SignIntoQQ`
 
 ##License
 

@@ -37,11 +37,11 @@ Github Google Sina QQ OAuth Sign
 
    //(remember to import "OAuthSignUtilHeader.h")
 ```
+
 2. add URL Types(In project target Info)
 
-   you can use my setting or use your own setting,just like my demo.
-
-![](https://github.com/mexiQQ/OAuthSignUtil/blob/master/1.png)
+   you can use my setting or use your own setting,like follow: 
+	![](https://github.com/mexiQQ/OAuthSignUtil/blob/master/1.png)
 
 3. viewController.h:
 

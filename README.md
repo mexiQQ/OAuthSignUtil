@@ -14,9 +14,9 @@ Github Google Sina QQ OAuth Sign
 
 ##Dependencies
 
-- AFNetworking  2.5.0
-- UMSocail  4.2.1
-- googleplus-ios-sdl  1.7.1
+- AFNetworking  ~2.5.0
+- UMSocail  ~4.2.1
+- googleplus-ios-sdl  ~1.7.1
 
 ##Use
 
@@ -40,6 +40,8 @@ Github Google Sina QQ OAuth Sign
 2. add URL Types(In project target Info)
 
    you can use my setting or use your own setting,just like my demo.
+
+![](https://github.com/mexiQQ/OAuthSignUtil/blob/master/1.png)
 
 3. viewController.h:
 

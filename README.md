@@ -10,7 +10,7 @@ Github Google Sina QQ OAuth Sign
 	pod 'MXOAuthSignUtil', '~> 0.0.6'
 
 ####Without Cocoapod
-	just like example
+	just like the Demo
 
 ##Dependencies
 
@@ -38,7 +38,7 @@ Github Google Sina QQ OAuth Sign
 
 2. add URL Types(In project target Info)
 
-   you can use my setting or use your own setting,like the follow: 
+   you can use my settings or your own settings,like the follow: 
 	
 	![](https://github.com/mexiQQ/OAuthSignUtil/blob/master/1.png)
 
@@ -56,17 +56,17 @@ Github Google Sina QQ OAuth Sign
 4. viewController.m：
 
 
-	   //callback
-	   - (void)didFinishOAuthSign:(NSDictionary *)userInfo accessToken:(NSString *)accessToken{
-	    NSLog(@"accessToken =%@",accessToken);
-	    NSLog(@"userInfo =%@",userInfo);
-	   }
-
-       //OAuth
-       - (IBAction)loginAction:(id)sender  {
-       [[OAuthSignUtil sharedOAuthSignUtil] signInto:SignIntoSina viewController:self ];
-       [OAuthSignUtil sharedOAuthSignUtil].oAuthDelegate = sel f;
- 	   }
+		  //callback
+		  - (void)didFinishOAuthSign:(NSDictionary *)userInfo accessToken:(NSString *)accessToken{
+		   NSLog(@"accessToken =%@",accessToken);
+		   NSLog(@"userInfo =%@",userInfo);
+		  }
+		
+		  //OAuth
+		  - (IBAction)loginAction:(id)sender  {
+		     [[OAuthSignUtil sharedOAuthSignUtil] signInto:SignIntoSina viewController:self ];
+		     [OAuthSignUtil sharedOAuthSignUtil].oAuthDelegate = sel f;
+		  }
 
  
    

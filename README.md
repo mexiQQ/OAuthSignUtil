@@ -34,7 +34,7 @@ Github Google Sina QQ OAuth Sign
 		    }
 		}
 
-2. add UMSocail Key  In Appdelegate.m
+2. add UMSocail Key  in Appdelegate.m
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 		    [UMSocialData setAppKey:@"5211818556240bc9ee01db2f"];

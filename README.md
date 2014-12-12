@@ -34,11 +34,14 @@ Github Google Sina QQ OAuth Sign
 		    }
 		}
 
-2. add UMSocail Key
+2. add UMSocail Key  In Appdelegate.m
 
-		[UMSocialData setAppKey:@"5211818556240bc9ee01db2f"];
-		[UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
-		[UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.umeng.com/social"];
+		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+		    [UMSocialData setAppKey:@"5211818556240bc9ee01db2f"];
+		    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+		    [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.umeng.com/social"];
+		    return YES;
+		}
 
 3. add URL Types(In project target Info)
 

@@ -45,8 +45,6 @@ typedef void(^OAuthSignUtilCompletionHandler) (BOOL success, NSError *error);
 
 +(OAuthSignUtil *)sharedOAuthSignUtil;
 
--(void)print;
-
 -(void)signInto:(SignInOptions)options viewController:(UIViewController *)viewContrller;
 
 @end

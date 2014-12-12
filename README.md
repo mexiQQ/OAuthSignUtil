@@ -1,5 +1,4 @@
 #OAuthSignUtil
-
 Github Google Sina QQ OAuth Sign
 
 ##Install
@@ -35,14 +34,19 @@ Github Google Sina QQ OAuth Sign
 		    }
 		}
 
+2. add UMSocail Key
 
-2. add URL Types(In project target Info)
+		[UMSocialData setAppKey:@"5211818556240bc9ee01db2f"];
+		[UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+		[UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.umeng.com/social"];
+
+3. add URL Types(In project target Info)
 
    you can use my settings or your own settings,like the follow: 
 	
 	![](https://github.com/mexiQQ/OAuthSignUtil/blob/master/1.png)
 
-3. viewController.h:
+4. viewController.h:
 
 
 		#import <UIKit/UIKit.h>
@@ -53,7 +57,7 @@ Github Google Sina QQ OAuth Sign
 		@end
 
 
-4. viewController.m：
+5. viewController.m：
 
 
 		  //callback
@@ -70,7 +74,7 @@ Github Google Sina QQ OAuth Sign
 
  
    
-5. Enum:`SignIntoSina,SignIntoGithub,SignIntoGoogle,SignIntoQQ`
+6. Enum:`SignIntoSina,SignIntoGithub,SignIntoGoogle,SignIntoQQ`
 
 ##License
 

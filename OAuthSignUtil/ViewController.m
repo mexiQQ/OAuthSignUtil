@@ -35,4 +35,11 @@
     [OAuthSignUtil sharedOAuthSignUtil].oAuthDelegate = self;
 }
 
+
+- (IBAction)token:(id)sender {
+    //此处有效
+    [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToSina  completion:^(UMSocialResponseEntity *response){
+        NSLog(@"SnsInformation is %@",response);
+    }];
+}
 @end

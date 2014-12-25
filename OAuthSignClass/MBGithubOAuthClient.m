@@ -47,10 +47,8 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
                 parametersString = [[NSString alloc]init];
                 NSString *parameter = (NSString *)obj;
                 parametersString = [parametersString stringByAppendingString:parameter];
-                
             } else {
                 [weakSelf throwException];
-                
             }
         }];
         

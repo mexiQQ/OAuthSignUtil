@@ -67,6 +67,15 @@ static OAuthSignUtil *shareOAuthSignUtil = nil;
     }
 }
 
+
+//实现回调方法（可选）：
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
+{
+    UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
+    NSDictionary *userInfo = @{@"username":snsAccount.userName,@"avatar_url":snsAccount.iconURL,@"email":@"no"};
+    [self finishOAuth:userInfo accessToken:snsAccount.accessToken];
+}
+
 -(void)didFinishGithubOAuth:(NSString *)accessToken response:(id)responseObject
 {
     NSDictionary *res = (NSDictionary *)responseObject;

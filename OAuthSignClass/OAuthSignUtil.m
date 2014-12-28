@@ -75,7 +75,6 @@ static OAuthSignUtil *shareOAuthSignUtil = nil;
     [self finishOAuth:nil accessToken:accessToken];
 }
 
-//实现回调方法（可选）：
 -(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
 {
     UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];

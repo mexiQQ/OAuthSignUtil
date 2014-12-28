@@ -16,8 +16,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [UMSocialData setAppKey:@"547c0998fd98c5eec80009a9"];
-    [UMSocialSinaHandler openSSOWithRedirectURL:@""];
+    [UMSocialData setAppKey:@"5211818556240bc9ee01db2f"];
+    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     return YES;
 }
 

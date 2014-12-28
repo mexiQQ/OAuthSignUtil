@@ -13,9 +13,10 @@ Github Google Sina QQ OAuth Sign
 
 ##Dependencies
 
-- AFNetworking  ~2.5.0
-- UMSocail  ~4.2.1
-- googleplus-ios-sdl  ~1.7.1
+ - UMSocail  ~4.2.1
+ - STHTTPRequest 1.0.2'
+
+
 
 ##Use
 

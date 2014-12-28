@@ -21,17 +21,22 @@
     [_Indicator startAnimating];
     if([_type isEqualToString:@"github"]){
         MBGithubOAuthClient *githubClient = [MBGithubOAuthClient clientWithID:_ClientID
-                                                                    andSecret:_ClientSecret];
+                                                                    andSecret:_ClientSecret
+                                                                    addRedirectUrl:_RedirectUrl];
         NSURL *url = [githubClient getOauthRequestURL];
         githubClient.mydelegate = self;
         [_myWebView loadRequest:[NSURLRequest requestWithURL:url]];
     }else if([_type isEqualToString:@"google"]){
-        MXGoogleOAuthClient *googleClient = [MXGoogleOAuthClient clientWithID:_ClientID andSecret:_ClientSecret];
+        MXGoogleOAuthClient *googleClient = [MXGoogleOAuthClient clientWithID:_ClientID
+                                                                    andSecret:_ClientSecret
+                                                               addRedirectUrl:_RedirectUrl];
         NSURL *url = [googleClient getOauthRequestURL];
         googleClient.mydelegate = self;
         [_myWebView loadRequest:[NSURLRequest requestWithURL:url]];
     }else if([_type isEqualToString:@"qq"]){
-        MXQQOAuthClient *qqClient = [MXQQOAuthClient clientWithID:_ClientID andSecret:_ClientSecret];
+        MXQQOAuthClient *qqClient = [MXQQOAuthClient clientWithID:_ClientID
+                                                        andSecret:_ClientSecret
+                                                   addRedirectUrl:_RedirectUrl];
         NSURL *url = [qqClient getOauthRequestURL];
         qqClient.mydelegate = self;
         [_myWebView loadRequest:[NSURLRequest requestWithURL:url]];
@@ -40,7 +45,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

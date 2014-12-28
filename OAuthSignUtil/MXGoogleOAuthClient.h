@@ -19,9 +19,10 @@ typedef void(^MXGoogleOAuthClientCompletionHandler)(BOOL success, NSError *error
 @interface MXGoogleOAuthClient : NSObject
 @property (nonatomic, strong) NSString * googleClientID;
 @property (nonatomic, strong) NSString * googleClientSecret;
+@property (nonatomic, strong) NSString * googleRedirectUrl;
 @property (nonatomic, assign) id<MXGoogleOAuthDelegate> mydelegate;
 
-+ (instancetype)clientWithID:(NSString *)clientID andSecret:(NSString *)clientSecret;
++ (instancetype)clientWithID:(NSString *)clientID andSecret:(NSString *)clientSecret addRedirectUrl:(NSString *)clientRedirectUrl;;
 
 + (instancetype)sharedClient;
 

@@ -31,6 +31,7 @@ static OAuthSignUtil *shareOAuthSignUtil = nil;
         mx.type = @"github";
         mx.ClientID = kGithubClientID;
         mx.ClientSecret = kGithubClientSecret;
+        mx.RedirectUrl = kGithubRedirectUrl;
         mx.mydelegate = self;
         [viewContrller presentViewController:mx animated:YES completion:^(void){
             NSLog(@"success");
@@ -41,6 +42,7 @@ static OAuthSignUtil *shareOAuthSignUtil = nil;
         mx.type = @"google";
         mx.ClientID = KGoogleClientID;
         mx.ClientSecret = kGoogleClientSecret;
+        mx.RedirectUrl = kGoogleRedirectUrl;
         mx.mydelegate = self;
         [viewContrller presentViewController:mx animated:YES completion:^(void){
             NSLog(@"success");
@@ -56,19 +58,11 @@ static OAuthSignUtil *shareOAuthSignUtil = nil;
         });
         [UMSocialControllerService defaultControllerService].socialUIDelegate = self;
     }else if(options == SignIntoQQ){
-//        UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
-//        snsPlatform.loginClickHandler(viewContrller,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
-//            [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToSina  completion:^(UMSocialResponseEntity *response){
-//                NSDictionary *re = (NSDictionary *)response.data;
-//                NSDictionary *userInfo = @{@"username":[re objectForKey:@"screen_name"],@"avatar_url":[re objectForKey:@"profile_image_url"],@"email":@"no"};
-//                [self finishOAuth:userInfo accessToken:[re objectForKey:@"access_token"]];
-//            }];
-//        });
-//        [UMSocialControllerService defaultControllerService].socialUIDelegate = self;
         MXOAuthViewController *mx = [[MXOAuthViewController alloc] initWithNibName:@"MXOAuthWebView" bundle:nil];
         mx.type = @"qq";
         mx.ClientID = KQQClientID;
         mx.ClientSecret = kQQClientSecret;
+        mx.RedirectUrl = kQQRedirectUrl;
         mx.mydelegate = self;
         [viewContrller presentViewController:mx animated:YES completion:^(void){
             NSLog(@"success");

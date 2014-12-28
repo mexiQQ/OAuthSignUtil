@@ -13,12 +13,12 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
 
 @implementation MXQQOAuthClient
 
-+ (instancetype)clientWithID:(NSString *)clientID andSecret:(NSString *)clientSecret;
++ (instancetype)clientWithID:(NSString *)clientID andSecret:(NSString *)clientSecret addRedirectUrl:(NSString *)clientRedirectUrl;
 {
     MXQQOAuthClient *sharedClient = [MXQQOAuthClient sharedClient];
     sharedClient.qqClientID = clientID;
     sharedClient.qqClientSecret = clientSecret;
-    
+    sharedClient.qqRedirectUrl = clientRedirectUrl;
     return sharedClient;
 }
 
@@ -36,7 +36,7 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
 - (void)tokenRequestWithCallbackURL:(NSURL *)url completion:(MXQQOAuthClientCompletionHandler)completionHandler
 {
     
-    NSString *requestString = [NSString stringWithFormat:@"https://graph.qq.com/oauth2.0/token?code=%@&client_id=100522525&client_secret=847a2742c2fe5d6c13e5fbb68967f128&redirect_uri=http://segmentfault.com/user/oauth/qq&grant_type=authorization_code", [self temporaryCodeFromCallbackURL:url]];
+    NSString *requestString = [NSString stringWithFormat:@"https://graph.qq.com/oauth2.0/token?code=%@&client_id=%@&client_secret=%@&redirect_uri=%@&grant_type=authorization_code", [self temporaryCodeFromCallbackURL:url],_qqClientID,_qqClientSecret,_qqRedirectUrl];
     
     STHTTPRequest *r = [STHTTPRequest requestWithURLString:requestString];
     
@@ -94,7 +94,7 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
 
 - (NSURL *)getOauthRequestURL
 {
-    return [NSURL URLWithString:@"https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=100522525&redirect_uri=http://segmentfault.com/user/oauth/qq"];
+    return [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=%@&redirect_uri=%@",_qqClientID,_qqRedirectUrl]];
 }
 
 

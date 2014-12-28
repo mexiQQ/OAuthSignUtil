@@ -20,9 +20,10 @@ typedef void(^MXQQOAuthClientCompletionHandler)(BOOL success, NSError *error);
 
 @property (nonatomic, strong) NSString * qqClientID;
 @property (nonatomic, strong) NSString * qqClientSecret;
+@property (nonatomic, strong) NSString * qqRedirectUrl;
 @property (nonatomic, assign) id<MXQQOAuthDelegate> mydelegate;
 
-+ (instancetype)clientWithID:(NSString *)clientID andSecret:(NSString *)clientSecret;
++ (instancetype)clientWithID:(NSString *)clientID andSecret:(NSString *)clientSecret addRedirectUrl:(NSString *)clientRedirectUrl;;
 
 + (instancetype)sharedClient;
 

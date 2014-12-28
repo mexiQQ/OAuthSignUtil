@@ -14,12 +14,12 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
 
 @implementation MXGoogleOAuthClient
 
-+ (instancetype)clientWithID:(NSString *)clientID andSecret:(NSString *)clientSecret;
++ (instancetype)clientWithID:(NSString *)clientID andSecret:(NSString *)clientSecret addRedirectUrl:(NSString *)clientRedirectUrl;
 {
     MXGoogleOAuthClient *sharedClient = [MXGoogleOAuthClient sharedClient];
     sharedClient.googleClientID = clientID;
     sharedClient.googleClientSecret = clientSecret;
-    
+    sharedClient.googleRedirectUrl = clientRedirectUrl;
     return sharedClient;
 }
 
@@ -40,7 +40,7 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
     NSString *requestString = @"https://www.googleapis.com/oauth2/v3/token";
     
     STHTTPRequest *r = [STHTTPRequest requestWithURLString:[NSString stringWithFormat:@"%@",requestString]];
-    r.POSTDictionary = @{@"code":[self temporaryCodeFromCallbackURL:url], @"client_id":@"1036396677040.apps.googleusercontent.com", @"client_secret":@"bEbv0ErmM-5VdajbNTR0SOYl",@"redirect_uri":@"http://segmentfault.com/user/oauth/google",@"grant_type":@"authorization_code"};
+    r.POSTDictionary = @{@"code":[self temporaryCodeFromCallbackURL:url], @"client_id":_googleClientID, @"client_secret":_googleClientSecret,@"redirect_uri":_googleRedirectUrl,@"grant_type":@"authorization_code"};
     [r setHeaderWithName:@"Content-Type" value:@"application/x-www-form-urlencoded;charset=utf-8"];
     r.completionDataBlock = ^(NSDictionary *headers, NSData *data) {
         NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
@@ -96,7 +96,7 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
 
 - (NSURL *)getOauthRequestURL
 {
-    return [NSURL URLWithString:@"https://accounts.google.com/o/oauth2/auth?scope=email%20profile&state=security_token&redirect_uri=http://segmentfault.com/user/oauth/google&response_type=code&client_id=1036396677040.apps.googleusercontent.com&approval_prompt=force"];
+    return [NSURL URLWithString:[NSString stringWithFormat:@"https://accounts.google.com/o/oauth2/auth?state=security_token&redirect_uri=%@&response_type=code&client_id=%@&approval_prompt=force",_googleRedirectUrl,_googleClientID]];
 }
 
 @end

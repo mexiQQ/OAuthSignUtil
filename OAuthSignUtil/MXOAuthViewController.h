@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSString * type;
 @property (nonatomic, strong) NSString * ClientID;
 @property (nonatomic, strong) NSString * ClientSecret;
+@property (nonatomic, strong) NSString * RedirectUrl;
 @property (weak, nonatomic) IBOutlet UIWebView *myWebView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *Indicator;
 @end

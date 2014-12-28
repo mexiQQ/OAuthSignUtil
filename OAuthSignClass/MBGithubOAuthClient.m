@@ -13,12 +13,12 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
 
 @implementation MBGithubOAuthClient
 
-+ (instancetype)clientWithID:(NSString *)clientID andSecret:(NSString *)clientSecret;
++ (instancetype)clientWithID:(NSString *)clientID andSecret:(NSString *)clientSecret addRedirectUrl:(NSString *)clientRedirectUrl;
 {
     MBGithubOAuthClient *sharedClient = [MBGithubOAuthClient sharedClient];
     sharedClient.githubClientID = clientID;
     sharedClient.githubClientSecret = clientSecret;
-    
+    sharedClient.githubRedirectUtl = clientRedirectUrl;
     return sharedClient;
 }
 

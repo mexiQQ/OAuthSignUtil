@@ -18,7 +18,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [UMSocialData setAppKey:@"547c0998fd98c5eec80009a9"];
     [UMSocialSinaHandler openSSOWithRedirectURL:@""];
-    [UMSocialQQHandler setQQWithAppId:@"100522525" appKey:@"847a2742c2fe5d6c13e5fbb68967f128" url:@"http://segmentfault.com"];
     return YES;
 }
 

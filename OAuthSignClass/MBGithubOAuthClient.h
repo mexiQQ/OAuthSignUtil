@@ -26,9 +26,10 @@ typedef enum {
 
 @property (nonatomic, strong) NSString * githubClientID;
 @property (nonatomic, strong) NSString * githubClientSecret;
+@property (nonatomic, strong) NSString * githubRedirectUtl;
 @property (nonatomic, assign) id<MBGithubOAuthDelegate> mydelegate;
 
-+ (instancetype)clientWithID:(NSString *)clientID andSecret:(NSString *)clientSecret;
++ (instancetype)clientWithID:(NSString *)clientID andSecret:(NSString *)clientSecret addRedirectUrl:(NSString *)clientRedirectUrl;
 
 + (instancetype)sharedClient;
 

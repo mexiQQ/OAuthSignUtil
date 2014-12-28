@@ -7,19 +7,19 @@
 //
 
 //github
-#define kGithubClientID @""
-#define kGithubClientSecret @""
+#define kGithubClientID @"f0ef3164bde57f49c9b1"
+#define kGithubClientSecret @"e8a747d116e8d56535103f3b67eab18b7004399b"
 #define kGithubRedirectUrl @""
 
 //google
-#define KGoogleClientID @""
-#define kGoogleClientSecret @""
+#define KGoogleClientID @"602865423207-a0hsl9nq65ddsc5fc1t7vb7pu0m36fv5.apps.googleusercontent.com"
+#define kGoogleClientSecret @"lbkdtIUyN-gB-3CwhhZzn5jR"
 #define kGoogleRedirectUrl @""
 
 //QQ
-#define KQQClientID @""
-#define kQQClientSecret @""
-#define kQQRedirectUrl @""
+#define KQQClientID @"100424468"
+#define kQQClientSecret @"c7394704798a158208a74ab60104f0ba"
+#define kQQRedirectUrl @"http://www.umeng.com/social"
 
 
 //UMeng

@@ -35,7 +35,7 @@ Github Google Sina QQ OAuth Sign
 
 3. add URL Types(In project target Info)
 
-   you can use my settings or your own settings,like the example. 
+   you can use my settings or your own settings,like the example 
 	
 4. viewController.h:
 

@@ -14,9 +14,7 @@ Github Google Sina QQ OAuth Sign
 ##Dependencies
 
  - UMSocail  ~4.2.1
- - STHTTPRequest 1.0.2'
-
-
+ - STHTTPRequest ~1.0.2
 
 ##Use
 
@@ -24,15 +22,7 @@ Github Google Sina QQ OAuth Sign
 
 		//(remember to import "OAuthSignUtilHeader.h")
 		- (BOOL)application: (UIApplication *)application openURL: (NSURL *)url sourceApplication: (NSString *)sourceApplication annotation: (id)annotation {
-		    if([url.absoluteString containsString:@"gitauth"]){
-		        return [[MBGithubOAuthClient sharedClient] handleOpenURL:url];
-		    }else if([url.absoluteString containsString:@"com.ljw.test"]){
-		        return [GPPURLHandler handleURL:url
-		                      sourceApplication:sourceApplication
-		                             annotation:annotation];
-		    }else{
 		        return [UMSocialSnsService handleOpenURL:url];
-		    }
 		}
 
 2. add UMSocail Key  in Appdelegate.m
@@ -40,16 +30,13 @@ Github Google Sina QQ OAuth Sign
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 		    [UMSocialData setAppKey:@"5211818556240bc9ee01db2f"];
 		    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
-		    [UMSocialQQHandler setQQWithAppId:@"100424468" appKey:@"c7394704798a158208a74ab60104f0ba" url:@"http://www.umeng.com/social"];
 		    return YES;
 		}
 
 3. add URL Types(In project target Info)
 
-   you can use my settings or your own settings,like the follow: 
+   you can use my settings or your own settings,like the example. 
 	
-	![](https://github.com/mexiQQ/OAuthSignUtil/blob/master/1.png)
-
 4. viewController.h:
 
 

@@ -23,11 +23,9 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>com.ljw.test</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.ljw.test</string>
+				<string>QQ05FDDA1D</string>
 			</array>
 		</dict>
 		<dict>
@@ -35,7 +33,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>gitauth</string>
+				<string>tencent100522525</string>
 			</array>
 		</dict>
 		<dict>
@@ -43,23 +41,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>QQ05FC5B14</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>tencent100424468</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>sina.5211818556240bc9ee01db2f</string>
+				<string>sina.547c0998fd98c5eec80009a9</string>
 			</array>
 		</dict>
 	</array>

@@ -8,13 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h> 
-#import "AFNetworking.h"
 
 @protocol MBGithubOAuthDelegate <NSObject>
 -(void)didFinishGithubOAuth:(NSString *)accessToken response:(id)responseObject;
 @end
-
-static NSString * const kMBAccessTokenKey = @"kMBAccessTokenKey";
 
 typedef void(^MBGithubOAuthClientCompletionHandler)(BOOL success, NSError *error);
 
@@ -35,13 +32,13 @@ typedef enum {
 
 + (instancetype)sharedClient;
 
-- (void)oauthRequestWithParameters:(NSDictionary *)parameters;
-
 - (void)tokenRequestWithCallbackURL:(NSURL *)url
                         saveOptions:(kMBSaveOptions)options
                          completion:(MBGithubOAuthClientCompletionHandler)completionHandler;
 
 - (BOOL)handleOpenURL:(NSURL *)url;
+
+- (NSURL *)getOauthRequestURL;
 
 @property (strong, nonatomic, readonly) NSString *accessToken;
 

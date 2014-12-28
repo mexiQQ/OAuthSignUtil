@@ -12,11 +12,6 @@
 
 #endif
 
-#import <GooglePlus/GooglePlus.h>
-#import "GPPURLHandler.h"
-#import "GTLPlusConstants.h"
-#import "GPPSignIn.h"
-
 #import "OAuthSignUtil.h"
 #import "MBGithubOAuthClient.h"
 #import "UMSocial.h"

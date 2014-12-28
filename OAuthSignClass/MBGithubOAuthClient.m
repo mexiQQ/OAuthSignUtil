@@ -33,33 +33,6 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
     return sharedClient;
 }
 
-- (void)oauthRequestWithParameters:(NSDictionary *)parameters
-{
-    __weak typeof(self) weakSelf = self;
-    __block NSString *parametersString = nil;
-    
-    if (parameters) {
-        
-        [parameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-            
-            if ([obj isKindOfClass:[NSString class]]) {
-                
-                parametersString = [[NSString alloc]init];
-                NSString *parameter = (NSString *)obj;
-                parametersString = [parametersString stringByAppendingString:parameter];
-            } else {
-                [weakSelf throwException];
-            }
-        }];
-        
-    }
-    
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@authorize?client_id=%@&scope=%@",
-                                                                    kOAuthBaseURLString,
-                                                                    _githubClientID,
-                                                                    parametersString]]];
-}
-
 - (void)tokenRequestWithCallbackURL:(NSURL *)url saveOptions:(kMBSaveOptions)options completion:(MBGithubOAuthClientCompletionHandler)completionHandler
 {
     NSString *requestString = [NSString stringWithFormat:@"%@access_token?client_id=%@&client_secret=%@&code=%@",
@@ -77,12 +50,7 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                 if (!error) {
                     accessTokenData = [self accessTokenFromString:[[NSString alloc]initWithData:data encoding:NSASCIIStringEncoding]];
-                    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-                    [manager GET:[NSString stringWithFormat:@"https://api.github.com/user?access_token=%@",accessTokenData] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                        [self finishOAuth:accessTokenData response:responseObject];
-                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                        NSLog(@"Error: %@", error);
-                    }];
+                    [self finishOAuth:accessTokenData response:nil];
                     completionHandler(YES, nil);
                 } else {
                     completionHandler(NO, error);
@@ -130,5 +98,19 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
 - (void)finishOAuth:(NSString *)accessToken response:(id)responseObject{
     [_mydelegate didFinishGithubOAuth:accessToken response:responseObject];
 }
+
+#pragma mark - UIWebViewURL
+
+- (NSURL *)getOauthRequestURL
+{
+    NSLog(@"_githubClientID = %@",_githubClientID);
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@authorize?client_id=%@",
+                                                                    kOAuthBaseURLString,
+                                                                    _githubClientID
+                                                            ]];
+}
+
+
+
 
 @end

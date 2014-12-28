@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "MXOAuthViewController.h"
 @interface ViewController ()
 
 @end
@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,21 +26,13 @@
 
 //回调
 -(void)didFinishOAuthSign:(NSDictionary *)userInfo accessToken:(NSString *)accessToken{
-    NSLog(@"accessToken =%@",accessToken);
-    NSLog(@"userInfo =%@",userInfo);
+    NSLog(@"accessToken = %@",accessToken);
 }
 
 //授权
 - (IBAction)loginAction:(id)sender {
-    [[OAuthSignUtil sharedOAuthSignUtil] signInto:SignIntoSina viewController:self];
+    [[OAuthSignUtil sharedOAuthSignUtil] signInto:SignIntoGithub viewController:self];
     [OAuthSignUtil sharedOAuthSignUtil].oAuthDelegate = self;
 }
 
-
-- (IBAction)token:(id)sender {
-    //此处有效
-    [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToSina  completion:^(UMSocialResponseEntity *response){
-        NSLog(@"SnsInformation is %@",response);
-    }];
-}
 @end

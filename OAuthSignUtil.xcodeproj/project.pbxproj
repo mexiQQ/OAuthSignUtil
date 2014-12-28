@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		568B582A6894A907D6310A06 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F15B92FFA1C1F763E8956CA /* libPods.a */; };
+		AF15B57A1A4D180300481517 /* MXOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF15B5791A4D180300481517 /* MXOAuthViewController.m */; };
+		AF15B57C1A4D1E3A00481517 /* MXOAuthWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF15B57B1A4D1E3A00481517 /* MXOAuthWebView.xib */; };
 		AF3A66701A38062D00A470A1 /* OAuthSignUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3A666F1A38062D00A470A1 /* OAuthSignUtil.m */; };
 		AF3A66731A38063B00A470A1 /* MBGithubOAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3A66721A38063B00A470A1 /* MBGithubOAuthClient.m */; };
 		AFC55B941A36D6F30067C791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC55B931A36D6F30067C791 /* main.m */; };
@@ -17,6 +19,8 @@
 		AFC55B9F1A36D6F30067C791 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFC55B9E1A36D6F30067C791 /* Images.xcassets */; };
 		AFC55BA21A36D6F30067C791 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFC55BA01A36D6F30067C791 /* LaunchScreen.xib */; };
 		AFC55BAE1A36D6F40067C791 /* OAuthSignUtilTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC55BAD1A36D6F40067C791 /* OAuthSignUtilTests.m */; };
+		AFD549BF1A4D4A830010EC41 /* MXGoogleOAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD549BE1A4D4A830010EC41 /* MXGoogleOAuthClient.m */; };
+		AFE426A01A4FFCFD00B6046C /* MXQQOAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AFE4269F1A4FFCFD00B6046C /* MXQQOAuthClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +36,9 @@
 /* Begin PBXFileReference section */
 		7360B189E3D7BFB0DF2874C6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7F15B92FFA1C1F763E8956CA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF15B5781A4D180300481517 /* MXOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXOAuthViewController.h; sourceTree = "<group>"; };
+		AF15B5791A4D180300481517 /* MXOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXOAuthViewController.m; sourceTree = "<group>"; };
+		AF15B57B1A4D1E3A00481517 /* MXOAuthWebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MXOAuthWebView.xib; sourceTree = "<group>"; };
 		AF3A666E1A38062D00A470A1 /* OAuthSignUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthSignUtil.h; path = OAuthSignClass/OAuthSignUtil.h; sourceTree = SOURCE_ROOT; };
 		AF3A666F1A38062D00A470A1 /* OAuthSignUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthSignUtil.m; path = OAuthSignClass/OAuthSignUtil.m; sourceTree = SOURCE_ROOT; };
 		AF3A66711A38063B00A470A1 /* MBGithubOAuthClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBGithubOAuthClient.h; path = OAuthSignClass/MBGithubOAuthClient.h; sourceTree = SOURCE_ROOT; };
@@ -50,6 +57,10 @@
 		AFC55BA71A36D6F40067C791 /* OAuthSignUtilTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAuthSignUtilTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC55BAC1A36D6F40067C791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFC55BAD1A36D6F40067C791 /* OAuthSignUtilTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthSignUtilTests.m; sourceTree = "<group>"; };
+		AFD549BD1A4D4A830010EC41 /* MXGoogleOAuthClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXGoogleOAuthClient.h; sourceTree = "<group>"; };
+		AFD549BE1A4D4A830010EC41 /* MXGoogleOAuthClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXGoogleOAuthClient.m; sourceTree = "<group>"; };
+		AFE4269E1A4FFCFD00B6046C /* MXQQOAuthClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXQQOAuthClient.h; sourceTree = "<group>"; };
+		AFE4269F1A4FFCFD00B6046C /* MXQQOAuthClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXQQOAuthClient.m; sourceTree = "<group>"; };
 		B0009B9E0273A3C42321619D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,9 +105,16 @@
 			children = (
 				AF3A66711A38063B00A470A1 /* MBGithubOAuthClient.h */,
 				AF3A66721A38063B00A470A1 /* MBGithubOAuthClient.m */,
+				AFD549BD1A4D4A830010EC41 /* MXGoogleOAuthClient.h */,
+				AFD549BE1A4D4A830010EC41 /* MXGoogleOAuthClient.m */,
+				AFE4269E1A4FFCFD00B6046C /* MXQQOAuthClient.h */,
+				AFE4269F1A4FFCFD00B6046C /* MXQQOAuthClient.m */,
 				AF3A66751A380CAF00A470A1 /* OAuthSignUtilHeader.h */,
 				AF3A666E1A38062D00A470A1 /* OAuthSignUtil.h */,
 				AF3A666F1A38062D00A470A1 /* OAuthSignUtil.m */,
+				AF15B5781A4D180300481517 /* MXOAuthViewController.h */,
+				AF15B5791A4D180300481517 /* MXOAuthViewController.m */,
+				AF15B57B1A4D1E3A00481517 /* MXOAuthWebView.xib */,
 			);
 			name = OAuthSignUtil;
 			sourceTree = "<group>";
@@ -154,7 +172,7 @@
 				AFC55BAB1A36D6F40067C791 /* Supporting Files */,
 			);
 			path = OAuthSignUtilTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		AFC55BAB1A36D6F40067C791 /* Supporting Files */ = {
 			isa = PBXGroup;
@@ -249,6 +267,7 @@
 			files = (
 				AFC55B9D1A36D6F30067C791 /* Main.storyboard in Resources */,
 				AFC55BA21A36D6F30067C791 /* LaunchScreen.xib in Resources */,
+				AF15B57C1A4D1E3A00481517 /* MXOAuthWebView.xib in Resources */,
 				AFC55B9F1A36D6F30067C791 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,7 +322,10 @@
 				AFC55B9A1A36D6F30067C791 /* ViewController.m in Sources */,
 				AFC55B971A36D6F30067C791 /* AppDelegate.m in Sources */,
 				AF3A66731A38063B00A470A1 /* MBGithubOAuthClient.m in Sources */,
+				AFE426A01A4FFCFD00B6046C /* MXQQOAuthClient.m in Sources */,
+				AF15B57A1A4D180300481517 /* MXOAuthViewController.m in Sources */,
 				AF3A66701A38062D00A470A1 /* OAuthSignUtil.m in Sources */,
+				AFD549BF1A4D4A830010EC41 /* MXGoogleOAuthClient.m in Sources */,
 				AFC55B941A36D6F30067C791 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

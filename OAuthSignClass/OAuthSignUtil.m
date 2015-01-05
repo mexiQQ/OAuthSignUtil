@@ -25,7 +25,6 @@ static OAuthSignUtil *shareOAuthSignUtil = nil;
 //signIn方法
 -(void)signInto:(SignInOptions)options viewController:(UIViewController *)viewContrller
 {
-    
     if(options == SignIntoGithub){
         MXOAuthViewController *mx = [[MXOAuthViewController alloc] initWithNibName:@"MXOAuthWebView" bundle:nil];
         mx.type = @"github";
@@ -36,7 +35,6 @@ static OAuthSignUtil *shareOAuthSignUtil = nil;
         [viewContrller presentViewController:mx animated:YES completion:^(void){
             NSLog(@"success");
         }];
-        
     }else if(options == SignIntoGoogle){
         MXOAuthViewController *mx = [[MXOAuthViewController alloc] initWithNibName:@"MXOAuthWebView" bundle:nil];
         mx.type = @"google";
@@ -48,15 +46,15 @@ static OAuthSignUtil *shareOAuthSignUtil = nil;
             NSLog(@"success");
         }];
     }else if(options == SignIntoSina){
-        UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
-        snsPlatform.loginClickHandler(viewContrller,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
-            [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToSina  completion:^(UMSocialResponseEntity *response){
-                NSDictionary *re = (NSDictionary *)response.data;
-                NSDictionary *userInfo = @{@"username":[re objectForKey:@"screen_name"],@"avatar_url":[re objectForKey:@"profile_image_url"],@"email":@"no"};
-                [self finishOAuth:userInfo accessToken:[re objectForKey:@"access_token"]];
-            }];
-        });
-        [UMSocialControllerService defaultControllerService].socialUIDelegate = self;
+        MXOAuthViewController *mx = [[MXOAuthViewController alloc] initWithNibName:@"MXOAuthWebView" bundle:nil];
+        mx.type = @"sina";
+        mx.ClientID = KSinaClientID;
+        mx.ClientSecret = KSinaClientSecret;
+        mx.RedirectUrl = KSinaRedirectUrl;
+        mx.mydelegate = self;
+        [viewContrller presentViewController:mx animated:YES completion:^(void){
+            NSLog(@"success");
+        }];
     }else if(options == SignIntoQQ){
         MXOAuthViewController *mx = [[MXOAuthViewController alloc] initWithNibName:@"MXOAuthWebView" bundle:nil];
         mx.type = @"qq";
@@ -67,19 +65,11 @@ static OAuthSignUtil *shareOAuthSignUtil = nil;
         [viewContrller presentViewController:mx animated:YES completion:^(void){
             NSLog(@"success");
         }];
-        
-    }
+      }
 }
 
-- (void)didFinishGithubOrGoogleOAuth:(NSString *)accessToken response:(id)responseObject{
+- (void)didFinishOAuthViewSign:(NSString *)accessToken response:(id)responseObject{
     [self finishOAuth:nil accessToken:accessToken];
-}
-
--(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
-{
-    UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
-    NSDictionary *userInfo = @{@"username":snsAccount.userName,@"avatar_url":snsAccount.iconURL,@"email":@"no"};
-    [self finishOAuth:userInfo accessToken:snsAccount.accessToken];
 }
 
 - (void)finishOAuth:(NSDictionary *) userInfo accessToken:(NSString *)accessToken

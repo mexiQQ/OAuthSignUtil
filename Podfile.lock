@@ -1,13 +1,10 @@
 PODS:
   - STHTTPRequest (1.0.2)
-  - UMengSocial (4.2.1)
 
 DEPENDENCIES:
   - STHTTPRequest (~> 1.0.2)
-  - UMengSocial (~> 4.2.1)
 
 SPEC CHECKSUMS:
   STHTTPRequest: 9aee3fd1557dcaa380198a9e56d36527ede342d1
-  UMengSocial: c53282eaf74fbb41aebe431b497ed6b634cf357f
 
 COCOAPODS: 0.35.0

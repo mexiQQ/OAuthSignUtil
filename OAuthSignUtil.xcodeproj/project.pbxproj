@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		568B582A6894A907D6310A06 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F15B92FFA1C1F763E8956CA /* libPods.a */; };
+		AF2383821A5A4663002FBCF8 /* MXSinaOAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AF2383811A5A4663002FBCF8 /* MXSinaOAuthClient.m */; };
 		AF3A66701A38062D00A470A1 /* OAuthSignUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3A666F1A38062D00A470A1 /* OAuthSignUtil.m */; };
 		AF3A66731A38063B00A470A1 /* MBGithubOAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3A66721A38063B00A470A1 /* MBGithubOAuthClient.m */; };
 		AFC55B941A36D6F30067C791 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC55B931A36D6F30067C791 /* main.m */; };
@@ -36,11 +37,12 @@
 /* Begin PBXFileReference section */
 		7360B189E3D7BFB0DF2874C6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7F15B92FFA1C1F763E8956CA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF2383801A5A4663002FBCF8 /* MXSinaOAuthClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MXSinaOAuthClient.h; path = OAuthSignClass/MXSinaOAuthClient.h; sourceTree = SOURCE_ROOT; };
+		AF2383811A5A4663002FBCF8 /* MXSinaOAuthClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MXSinaOAuthClient.m; path = OAuthSignClass/MXSinaOAuthClient.m; sourceTree = SOURCE_ROOT; };
 		AF3A666E1A38062D00A470A1 /* OAuthSignUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthSignUtil.h; path = OAuthSignClass/OAuthSignUtil.h; sourceTree = SOURCE_ROOT; };
 		AF3A666F1A38062D00A470A1 /* OAuthSignUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuthSignUtil.m; path = OAuthSignClass/OAuthSignUtil.m; sourceTree = SOURCE_ROOT; };
 		AF3A66711A38063B00A470A1 /* MBGithubOAuthClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBGithubOAuthClient.h; path = OAuthSignClass/MBGithubOAuthClient.h; sourceTree = SOURCE_ROOT; };
 		AF3A66721A38063B00A470A1 /* MBGithubOAuthClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBGithubOAuthClient.m; path = OAuthSignClass/MBGithubOAuthClient.m; sourceTree = SOURCE_ROOT; };
-		AF3A66751A380CAF00A470A1 /* OAuthSignUtilHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuthSignUtilHeader.h; path = OAuthSignClass/OAuthSignUtilHeader.h; sourceTree = SOURCE_ROOT; };
 		AFC55B8E1A36D6F30067C791 /* OAuthSignUtil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OAuthSignUtil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFC55B921A36D6F30067C791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFC55B931A36D6F30067C791 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -109,7 +111,8 @@
 				AFE426A71A5032DF00B6046C /* MXQQOAuthClient.m */,
 				AF3A66711A38063B00A470A1 /* MBGithubOAuthClient.h */,
 				AF3A66721A38063B00A470A1 /* MBGithubOAuthClient.m */,
-				AF3A66751A380CAF00A470A1 /* OAuthSignUtilHeader.h */,
+				AF2383801A5A4663002FBCF8 /* MXSinaOAuthClient.h */,
+				AF2383811A5A4663002FBCF8 /* MXSinaOAuthClient.m */,
 				AF3A666E1A38062D00A470A1 /* OAuthSignUtil.h */,
 				AF3A666F1A38062D00A470A1 /* OAuthSignUtil.m */,
 				AFE426A31A5032DF00B6046C /* MXOAuthViewController.h */,
@@ -324,6 +327,7 @@
 				AFE426A81A5032DF00B6046C /* MXGoogleOAuthClient.m in Sources */,
 				AFE426AB1A5032DF00B6046C /* MXQQOAuthClient.m in Sources */,
 				AF3A66731A38063B00A470A1 /* MBGithubOAuthClient.m in Sources */,
+				AF2383821A5A4663002FBCF8 /* MXSinaOAuthClient.m in Sources */,
 				AFE426A91A5032DF00B6046C /* MXOAuthViewController.m in Sources */,
 				AF3A66701A38062D00A470A1 /* OAuthSignUtil.m in Sources */,
 				AFC55B941A36D6F30067C791 /* main.m in Sources */,

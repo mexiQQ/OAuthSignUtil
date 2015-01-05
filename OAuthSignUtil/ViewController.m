@@ -31,7 +31,7 @@
 
 //授权
 - (IBAction)loginAction:(id)sender {
-    [[OAuthSignUtil sharedOAuthSignUtil] signInto:SignIntoGithub viewController:self];
+    [[OAuthSignUtil sharedOAuthSignUtil] signInto:SignIntoSina viewController:self];
     [OAuthSignUtil sharedOAuthSignUtil].oAuthDelegate = self;
 }
 

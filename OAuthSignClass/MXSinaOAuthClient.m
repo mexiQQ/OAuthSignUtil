@@ -1,53 +1,50 @@
 //
-//  MXGoogleOAuthClient.m
+//  MXSinaOAuthClient.m
 //  OAuthSignUtil
 //
-//  Created by MexiQQ on 14/12/26.
-//  Copyright (c) 2014年 MexiQQ. All rights reserved.
+//  Created by MexiQQ on 15/1/5.
+//  Copyright (c) 2015年 MexiQQ. All rights reserved.
 //
 
-#import "MXGoogleOAuthClient.h"
+#import "MXSinaOAuthClient.h"
 
-static NSString * const kOAuthBaseURLString = @"https://accounts.google.com/o/oauth2/auth?";
-static NSString * const kOAuthTokenURLString = @"https://www.googleapis.com/oauth2/v3/token";
 static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
 
-@implementation MXGoogleOAuthClient
+@implementation MXSinaOAuthClient
 
 + (instancetype)clientWithID:(NSString *)clientID andSecret:(NSString *)clientSecret addRedirectUrl:(NSString *)clientRedirectUrl;
 {
-    MXGoogleOAuthClient *sharedClient = [MXGoogleOAuthClient sharedClient];
-    sharedClient.googleClientID = clientID;
-    sharedClient.googleClientSecret = clientSecret;
-    sharedClient.googleRedirectUrl = clientRedirectUrl;
+    MXSinaOAuthClient *sharedClient = [MXSinaOAuthClient sharedClient];
+    sharedClient.sinaClientID = clientID;
+    sharedClient.sinaClientSecret = clientSecret;
+    sharedClient.sinaRedirectUrl = clientRedirectUrl;
     return sharedClient;
 }
 
 + (instancetype)sharedClient;
 {
-    static MXGoogleOAuthClient *sharedClient = nil;
+    static MXSinaOAuthClient *sharedClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedClient = [[MXGoogleOAuthClient alloc] init];
+        sharedClient = [[MXSinaOAuthClient alloc] init];
     });
     
     return sharedClient;
 }
 
-- (void)tokenRequestWithCallbackURL:(NSURL *)url completion:(MXGoogleOAuthClientCompletionHandler)completionHandler
+- (void)tokenRequestWithCallbackURL:(NSURL *)url completion:(MXSinaOAuthClientCompletionHandler)completionHandler
 {
     
-    NSString *requestString = @"https://www.googleapis.com/oauth2/v3/token";
+    NSString *requestString = [NSString stringWithFormat:@"https://api.weibo.com/oauth2/access_token"];
     
-    STHTTPRequest *r = [STHTTPRequest requestWithURLString:[NSString stringWithFormat:@"%@",requestString]];
-    r.POSTDictionary = @{@"code":[self temporaryCodeFromCallbackURL:url], @"client_id":_googleClientID, @"client_secret":_googleClientSecret,@"redirect_uri":_googleRedirectUrl,@"grant_type":@"authorization_code"};
-    [r setHeaderWithName:@"Content-Type" value:@"application/x-www-form-urlencoded;charset=utf-8"];
+    STHTTPRequest *r = [STHTTPRequest requestWithURLString:requestString];
+    r.POSTDictionary = @{@"code":[self temporaryCodeFromCallbackURL:url], @"client_id":_sinaClientID, @"client_secret":_sinaClientSecret,@"redirect_uri":_sinaRedirectUrl,@"grant_type":@"authorization_code"};
     r.completionDataBlock = ^(NSDictionary *headers, NSData *data) {
         NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
         [self finishOAuth:[response objectForKey:@"access_token"] response:nil];
     };
     r.errorBlock = ^(NSError *error) {
-        NSLog(@"访问异常");
+        NSLog(@"访问异常:%@",error);
     };
     [r startAsynchronous];
 }
@@ -89,14 +86,15 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
 }
 
 - (void)finishOAuth:(NSString *)accessToken response:(id)responseObject{
-    [_mydelegate didFinishGoogleOAuth:accessToken response:responseObject];
+    [_mydelegate didFinishSinaOAuth:accessToken response:responseObject];
 }
 
 #pragma mark - UIWebViewURL
 
 - (NSURL *)getOauthRequestURL
 {
-    return [NSURL URLWithString:[NSString stringWithFormat:@"https://accounts.google.com/o/oauth2/auth?scope=%@&state=security_token&redirect_uri=%@&response_type=code&client_id=%@&approval_prompt=force",@"email%20profile",_googleRedirectUrl,_googleClientID]];
+    NSLog(@"https://api.weibo.com/oauth2/authorize?client_id=%@&response_type=code&redirect_uri=%@",_sinaClientID,_sinaRedirectUrl);
+    return [NSURL URLWithString:[NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&response_type=code&redirect_uri=%@",_sinaClientID,_sinaRedirectUrl]];
 }
 
 @end

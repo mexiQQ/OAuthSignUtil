@@ -40,6 +40,13 @@
         NSURL *url = [qqClient getOauthRequestURL];
         qqClient.mydelegate = self;
         [_myWebView loadRequest:[NSURLRequest requestWithURL:url]];
+    }else if([_type isEqualToString:@"sina"]){
+        MXSinaOAuthClient *sinaClient = [MXSinaOAuthClient clientWithID:_ClientID
+                                                        andSecret:_ClientSecret
+                                                   addRedirectUrl:_RedirectUrl];
+        NSURL *url = [sinaClient getOauthRequestURL];
+        sinaClient.mydelegate = self;
+        [_myWebView loadRequest:[NSURLRequest requestWithURL:url]];
     }
 }
 
@@ -76,7 +83,16 @@
         else{
             return YES;
         }
+    }else if([_type isEqualToString:@"sina"]){
+        if([request.URL.absoluteString containsString:@"code="]){
+            [[MXSinaOAuthClient sharedClient] handleOpenURL:request.URL];
+            return NO;
+        }
+        else{
+            return YES;
+        }
     }
+
     return NO;
 }
 
@@ -107,8 +123,14 @@
     }];
 }
 
+- (void)didFinishSinaOAuth:(NSString *)accessToken response:(id)responseObject{
+    [self dismissViewControllerAnimated:YES completion:^(void){
+        [self finishOAuth:accessToken response:nil];
+    }];
+}
+
 - (void)finishOAuth:(NSString *)accessToken response:(id)responseObject{
-    [_mydelegate didFinishGithubOrGoogleOAuth:accessToken response:responseObject];
+    [_mydelegate didFinishOAuthViewSign:accessToken response:responseObject];
 }
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^(void){

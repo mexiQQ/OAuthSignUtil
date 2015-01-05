@@ -12,14 +12,14 @@
 #import "MBGithubOAuthClient.h"
 #import "MXGoogleOAuthClient.h"
 #import "MXQQOAuthClient.h"
-
-@protocol MXGithubOrdGoogleOAuthDelegate <NSObject>
--(void)didFinishGithubOrGoogleOAuth:(NSString *)accessToken response:(id)responseObject;
+#import "MXSinaOAuthClient.h"
+@protocol MXOAuthViewDelegate <NSObject>
+-(void)didFinishOAuthViewSign:(NSString *)accessToken response:(id)responseObject;
 @end
 
-@interface MXOAuthViewController : UIViewController<UIWebViewDelegate,MBGithubOAuthDelegate,MXGoogleOAuthDelegate,MXQQOAuthDelegate>
+@interface MXOAuthViewController : UIViewController<UIWebViewDelegate,MBGithubOAuthDelegate,MXGoogleOAuthDelegate,MXQQOAuthDelegate,MXSinaOAuthDelegate>
 
-@property (nonatomic, assign) id<MXGithubOrdGoogleOAuthDelegate> mydelegate;
+@property (nonatomic, assign) id<MXOAuthViewDelegate> mydelegate;
 
 @property (nonatomic, strong) NSString * type;
 @property (nonatomic, strong) NSString * ClientID;

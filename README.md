@@ -16,8 +16,29 @@ Github Google Sina QQ OAuth Sign
  - STHTTPRequest ~1.0.2
 
 ##Use
+1. find the OAuthSianUtil.h and add ID,secret for 4 platforms
 	
-1. viewController.h:
+		//github
+		#define kGithubClientID @""
+		#define kGithubClientSecret @""
+		#define kGithubRedirectUrl @""
+		
+		//google
+		#define KGoogleClientID @""
+		#define kGoogleClientSecret @""
+		#define kGoogleRedirectUrl @""
+		
+		//QQ
+		#define KQQClientID @""
+		#define kQQClientSecret @""
+		#define kQQRedirectUrl @""
+		
+		//sina
+		#define KSinaClientID @""
+		#define KSinaClientSecret @""
+		#define KSinaRedirectUrl @""
+	
+2. viewController.h:
 
 
 		#import <UIKit/UIKit.h>
@@ -28,7 +49,7 @@ Github Google Sina QQ OAuth Sign
 		@end
 
 
-2. viewController.m：
+3. viewController.m：
 
 
 		  //callback

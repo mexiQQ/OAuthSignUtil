@@ -23,10 +23,9 @@
     [super didReceiveMemoryWarning];
 }
 
-
 //回调
--(void)didFinishOAuthSign:(NSDictionary *)userInfo accessToken:(NSString *)accessToken{
-    NSLog(@"accessToken = %@",accessToken);
+-(void)didFinishOAuthSign:(NSString *)type accessToken:(NSString *)accessToken{
+     NSLog(@"type is %@ \n accessToken = %@",type,accessToken);
 }
 
 //授权

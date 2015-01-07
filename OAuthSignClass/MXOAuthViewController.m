@@ -107,30 +107,30 @@
 -(void)didFinishGithubOAuth:(NSString *)accessToken response:(id)responseObject
 {
     [self dismissViewControllerAnimated:YES completion:^(void){
-        [self finishOAuth:accessToken response:nil];
+        [self finishOAuth:accessToken type:@"Github"];
     }];
 }
 
 - (void)didFinishGoogleOAuth:(NSString *)accessToken response:(id)responseObject{
     [self dismissViewControllerAnimated:YES completion:^(void){
-        [self finishOAuth:accessToken response:nil];
+        [self finishOAuth:accessToken type:@"Google"];
     }];
 }
 
 - (void)didFinishQQOAuth:(NSString *)accessToken response:(id)responseObject{
     [self dismissViewControllerAnimated:YES completion:^(void){
-        [self finishOAuth:accessToken response:nil];
+        [self finishOAuth:accessToken type:@"QQ"];
     }];
 }
 
 - (void)didFinishSinaOAuth:(NSString *)accessToken response:(id)responseObject{
     [self dismissViewControllerAnimated:YES completion:^(void){
-        [self finishOAuth:accessToken response:nil];
+        [self finishOAuth:accessToken type:@"Sina"];
     }];
 }
 
-- (void)finishOAuth:(NSString *)accessToken response:(id)responseObject{
-    [_mydelegate didFinishOAuthViewSign:accessToken response:responseObject];
+- (void)finishOAuth:(NSString *)accessToken type:(NSString *)type{
+    [_mydelegate didFinishOAuthViewSign:accessToken type:type];
 }
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:^(void){

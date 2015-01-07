@@ -31,7 +31,7 @@
 @protocol OAuthSignUtilDelegate<NSObject>
 
 @required
--(void)didFinishOAuthSign:(NSDictionary *)userInfo accessToken:(NSString *) accessToken;
+-(void)didFinishOAuthSign:(NSString *)type accessToken:(NSString *) accessToken;
 
 @end
 

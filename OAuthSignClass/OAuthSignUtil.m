@@ -68,12 +68,12 @@ static OAuthSignUtil *shareOAuthSignUtil = nil;
       }
 }
 
-- (void)didFinishOAuthViewSign:(NSString *)accessToken response:(id)responseObject{
-    [self finishOAuth:nil accessToken:accessToken];
+- (void)didFinishOAuthViewSign:(NSString *)accessToken type:(NSString *)type{
+    [self finishOAuth:type accessToken:accessToken];
 }
 
-- (void)finishOAuth:(NSDictionary *) userInfo accessToken:(NSString *)accessToken
+- (void)finishOAuth:(NSString *) type accessToken:(NSString *)accessToken
 {
-    [_oAuthDelegate didFinishOAuthSign:userInfo accessToken:accessToken];
+    [_oAuthDelegate didFinishOAuthSign:type accessToken:accessToken];
 }
 @end

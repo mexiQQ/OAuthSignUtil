@@ -14,7 +14,7 @@
 #import "MXQQOAuthClient.h"
 #import "MXSinaOAuthClient.h"
 @protocol MXOAuthViewDelegate <NSObject>
--(void)didFinishOAuthViewSign:(NSString *)accessToken response:(id)responseObject;
+-(void)didFinishOAuthViewSign:(NSString *)accessToken type:(NSString *)type;
 @end
 
 @interface MXOAuthViewController : UIViewController<UIWebViewDelegate,MBGithubOAuthDelegate,MXGoogleOAuthDelegate,MXQQOAuthDelegate,MXSinaOAuthDelegate>

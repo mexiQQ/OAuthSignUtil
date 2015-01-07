@@ -6,7 +6,7 @@ Github Google Sina QQ OAuth Sign
 ####Cocoapod
 	
 	platform:'ios','7.0'
-	pod 'MXOAuthSignUtil', '~> 0.0.6'
+	pod 'MXOAuthSignUtil', '~> 0.1.2'
 
 ####Without Cocoapod
 	just like the Demo

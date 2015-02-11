@@ -53,15 +53,15 @@ Github Google Sina QQ OAuth Sign
 
 
 		  //callback
-		  - (void)didFinishOAuthSign:(NSDictionary *)userInfo accessToken:(NSString *)accessToken{
-		   NSLog(@"accessToken =%@",accessToken);
-		   NSLog(@"userInfo =%@",userInfo);
+		  - (void)didFinishOAuthSign:(NSString *)type accessToken:(NSString *) accessToken{
+		      NSLog(@"type is %@ accessToken =%@",type,accessToken);
 		  }
+
 		
 		  //OAuth
 		  - (IBAction)loginAction:(id)sender  {
-		     [[OAuthSignUtil sharedOAuthSignUtil] signInto:SignIntoSina viewController:self ];
-		     [OAuthSignUtil sharedOAuthSignUtil].oAuthDelegate = sel f;
+		      [[OAuthSignUtil sharedOAuthSignUtil] signInto:SignIntoSina viewController:self ];
+		      [OAuthSignUtil sharedOAuthSignUtil].oAuthDelegate = self;
 		  }
 
  

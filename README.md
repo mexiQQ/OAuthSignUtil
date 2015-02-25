@@ -53,13 +53,8 @@ Github Google Sina QQ OAuth Sign
 
 
 		  //callback
-<<<<<<< HEAD
-		  -(void)didFinishOAuthSign:(NSString *)type accessToken:(NSString *)accessToken{
-		     NSLog(@"type is %@ \n accessToken = %@",type,accessToken);
-=======
 		  - (void)didFinishOAuthSign:(NSString *)type accessToken:(NSString *) accessToken{
 		      NSLog(@"type is %@ accessToken =%@",type,accessToken);
->>>>>>> f79255375c4e4dd25e8a1b448e1a1006f0516510
 		  }
 
 		

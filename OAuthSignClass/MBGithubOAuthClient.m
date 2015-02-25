@@ -104,9 +104,10 @@ static NSString * const kMBAccessTokenRegexPattern = @"access_token=([^&]+)";
 - (NSURL *)getOauthRequestURL
 {
     NSLog(@"_githubClientID = %@",_githubClientID);
-    return [NSURL URLWithString:[NSString stringWithFormat:@"%@authorize?client_id=%@",
+    return [NSURL URLWithString:[NSString stringWithFormat:@"%@authorize?client_id=%@&scope=%@",
                                                                     kOAuthBaseURLString,
-                                                                    _githubClientID
+                                                                    _githubClientID,
+                                                                    @"email,user"
                                                             ]];
 }
 
